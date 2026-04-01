@@ -90,7 +90,7 @@ class block_nsse_survey extends block_base {
         fwrite($csvfile, $csvdata);
         rewind($csvfile);
         $csv = [];
-        while (($row = fgetcsv($csvfile)) !== false) {
+        while (($row = fgetcsv($csvfile, escape: '\\')) !== false) {
             $csv[] = $row;
         }
         fclose($csvfile);
