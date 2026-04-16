@@ -93,7 +93,7 @@ class block_nsse_survey extends block_list {
         fputs($csvfile, $csvdata);
         rewind($csvfile);
         $csv = [];
-        while (($row = fgetcsv($csvfile, 0, ",", '"', "\\")) !== FALSE) {
+        while (($row = fgetcsv($csvfile, escape: '\\')) !== false) {
             $csv[] = $row;
         }
         fclose($csvfile);
